@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>МШП - Пятнашки</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1 class="page-title">МШП — Пятнашки</h1>
+      <p class="page-subtitle">
+        Соберите поле, используя ссылку с зашифрованной раскладкой
+      </p>
+    </header>
+    <main class="page-content">
+      <section class="status-panel" aria-live="polite">
+        <div class="status-item">
+          <span class="status-label">Размер:</span>
+          <span id="board-size" class="status-value"></span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Ходы:</span>
+          <span id="move-count" class="status-value">0</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Время:</span>
+          <span id="timer" class="status-value">00:00</span>
+        </div>
+        <button id="restart" type="button" class="primary-button">
+          Перезапуск
+        </button>
+      </section>
+      <section class="board-wrapper">
+        <div
+          id="board"
+          class="board"
+          role="grid"
+          aria-label="Игровое поле"
+        ></div>
+        <p id="message" class="message" role="status" aria-live="assertive"></p>
+      </section>
+      <section class="help-panel">
+        <h2>Как начать игру</h2>
+        <ol>
+          <li>
+            Перейдите на
+            <a href="generator/" class="link">служебную страницу</a> и создайте
+            нужное поле.
+          </li>
+          <li>Скопируйте сгенерированный адрес со скрытым шифром.</li>
+          <li>
+            Откройте его и начните собирать пятнашки, перемещая плитки рядом с
+            пустой.
+          </li>
+        </ol>
+        <p>
+          Если параметры не указаны, будет использована стандартная раскладка
+          4×4.
+        </p>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <small>© МШП — Пятнашки</small>
+    </footer>
+    <script type="module" src="scripts/game.js"></script>
+  </body>
+</html>
