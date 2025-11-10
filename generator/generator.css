@@ -1,0 +1,87 @@
+.generator-layout {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
+}
+
+.generator-controls,
+.generator-board,
+.generator-result {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: var(--gap);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: var(--gap);
+}
+
+.control-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.control-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(13, 74, 164, 0.15);
+  font: inherit;
+  background: rgba(255, 255, 255, 0.9);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(29, 111, 230, 0.15);
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.preview input {
+  border-radius: 12px;
+  border: 1px solid rgba(13, 74, 164, 0.2);
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.preview input::placeholder {
+  color: var(--primary-light);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.generator-result textarea {
+  resize: none;
+  min-height: 2.75rem;
+}
+
+@media (max-width: 720px) {
+  .preview {
+    grid-template-columns: repeat(var(--columns, 4), minmax(48px, 1fr));
+  }
+}
