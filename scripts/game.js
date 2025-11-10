@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   boardSizeElement.textContent = `${state.width} × ${state.height}`;
   renderBoard();
+  window.addEventListener("resize", sizeBoard);
 
   restartButton.addEventListener("click", () => {
     resetState();
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     moveCountElement.textContent = "0";
     timerElement.textContent = formatTime(0);
     messageElement.textContent = "";
+    messageElement.classList.remove("message-win");
     renderBoard();
   }
 
@@ -68,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     boardElement.innerHTML = "";
     boardElement.style.gridTemplateColumns = `repeat(${state.width}, 1fr)`;
     boardElement.style.gridTemplateRows = `repeat(${state.height}, 1fr)`;
-    boardElement.style.aspectRatio = `${state.width} / ${state.height}`;
 
     state.tiles.forEach((value, index) => {
       const tile = document.createElement("button");
@@ -88,6 +89,28 @@ document.addEventListener("DOMContentLoaded", () => {
       tile.addEventListener("click", () => handleTileClick(index));
       boardElement.appendChild(tile);
     });
+
+    sizeBoard();
+  }
+
+  function sizeBoard() {
+    const maxWidth = Math.max(Math.min(window.innerWidth * 0.8, 520), 240);
+    const maxHeightLimit = Math.min(window.innerHeight * 0.68, window.innerHeight - 320);
+    const maxHeight = Math.max(maxHeightLimit, 240);
+    const ratio = state.width / state.height;
+
+    let boardWidth = maxWidth;
+    let boardHeight = boardWidth / ratio;
+
+    if (boardHeight > maxHeight) {
+      boardHeight = maxHeight;
+      boardWidth = boardHeight * ratio;
+    }
+
+    const roundedWidth = Math.round(boardWidth);
+    const roundedHeight = Math.round(boardHeight);
+    boardElement.style.width = `${roundedWidth}px`;
+    boardElement.style.height = `${roundedHeight}px`;
   }
 
   function handleTileClick(index) {
@@ -113,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isSolved(state.tiles)) {
       stopTimer();
       messageElement.textContent = `Готово! Вы собрали поле за ${state.moves} ходов и ${formatTime(state.seconds)}.`;
+      messageElement.classList.add("message-win");
     }
   }
 });
