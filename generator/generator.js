@@ -144,6 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildGrid(values, backgrounds) {
     preview.innerHTML = "";
     preview.style.setProperty("--columns", gridWidth);
+    preview.style.setProperty("--rows", gridHeight);
+    preview.style.setProperty("--ratio", `${gridWidth} / ${gridHeight}`);
     preview.dataset.mode = tileMode;
 
     const total = gridWidth * gridHeight;
