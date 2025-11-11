@@ -226,9 +226,10 @@ textarea:focus {
 
 .preview-scroller {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow: auto;
+  justify-content: center;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: clamp(0.75rem, 2vh, 1.4rem);
   border-radius: calc(var(--border-radius) - 6px);
   background: linear-gradient(
@@ -241,17 +242,14 @@ textarea:focus {
 .preview {
   display: grid;
   grid-template-columns: repeat(var(--columns, 4), minmax(0, 1fr));
-  grid-template-rows: repeat(var(--rows, 4), minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: clamp(0.4rem, 1.2vw, 0.8rem);
-  width: min(100%, clamp(360px, 40vw, 560px));
-  max-height: clamp(420px, 64vh, 720px);
-  aspect-ratio: var(--ratio, 1 / 1);
+  width: min(100%, clamp(340px, 58vw, 640px));
   margin-inline: auto;
 }
 
 .preview[data-mode="images"] {
-  width: min(100%, clamp(420px, 54vw, 720px));
-  max-height: clamp(480px, 70vh, 820px);
+  width: min(100%, clamp(400px, 62vw, 760px));
 }
 
 .preview-cell {
