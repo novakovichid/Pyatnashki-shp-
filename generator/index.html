@@ -39,13 +39,20 @@
             <option value="images">Фоны из картинок</option>
           </select>
         </div>
-        <button type="button" id="apply" class="primary-button">
-          Обновить поле
-        </button>
+        <div class="generator-actions">
+          <button type="button" id="apply" class="primary-button">
+            Обновить поле
+          </button>
+        </div>
       </section>
 
       <section class="generator-board">
-        <h2>Раскладка</h2>
+        <div class="generator-board-header">
+          <h2>Раскладка</h2>
+          <p class="hint">
+            Оставьте ячейку пустой, чтобы обозначить свободное поле.
+          </p>
+        </div>
         <div class="preview-scroller">
           <div
             id="preview"
@@ -54,9 +61,6 @@
             aria-label="Конструктор поля"
           ></div>
         </div>
-        <p class="hint">
-          Оставьте ячейку пустой, чтобы обозначить свободное поле.
-        </p>
       </section>
 
       <section class="generator-result">
@@ -66,12 +70,14 @@
         <textarea id="payload" readonly rows="2"></textarea>
         <label class="control-label" for="url">Полный адрес</label>
         <textarea id="url" readonly rows="2"></textarea>
-        <button type="button" id="generate" class="primary-button">
-          Создать ссылку
-        </button>
-        <button type="button" id="copy" class="primary-button">
-          Скопировать адрес
-        </button>
+        <div class="generator-result-actions">
+          <button type="button" id="generate" class="primary-button">
+            Создать ссылку
+          </button>
+          <button type="button" id="copy" class="primary-button">
+            Скопировать адрес
+          </button>
+        </div>
         <p
           id="validation"
           class="message"
