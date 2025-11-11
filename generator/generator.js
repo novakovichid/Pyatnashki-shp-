@@ -399,9 +399,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (backgroundName) {
       const encoded = encodeURIComponent(backgroundName);
       element.style.backgroundImage = `url(../pics/${encoded})`;
+      element.style.backgroundSize = "contain";
+      element.style.backgroundPosition = "center";
+      element.style.backgroundRepeat = "no-repeat";
       element.dataset.hasBackground = "true";
     } else {
       element.style.backgroundImage = "none";
+      element.style.backgroundSize = "";
+      element.style.backgroundPosition = "";
+      element.style.backgroundRepeat = "";
       delete element.dataset.hasBackground;
     }
   }
