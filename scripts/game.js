@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tile.classList.add("tile--image");
         const url = buildTileBackgroundUrl(background);
         tile.style.backgroundImage = `url(${url})`;
-        tile.style.backgroundSize = "cover";
+        tile.style.backgroundSize = "contain";
         tile.style.backgroundPosition = "center";
         tile.style.backgroundRepeat = "no-repeat";
       } else {

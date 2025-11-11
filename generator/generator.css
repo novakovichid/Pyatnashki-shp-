@@ -275,7 +275,7 @@ textarea:focus {
 
 .preview-cell[data-has-background="true"] {
   color: #fff;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
